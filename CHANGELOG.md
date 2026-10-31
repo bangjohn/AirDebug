@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-10-31
+
+- Fix: text was unreadable (white on white) when Windows uses dark mode
+- New: light and dark theme that follows the Windows app mode automatically, also while AirDebug is running
+- Clearer checkboxes in both themes
+
 ## 1.0.0 - 2026-10-31
 
 First release.
@@ -12,4 +18,3 @@ First release.
 - USB → Wi-Fi (`adb tcpip`) for Android 10 and older
 - Downloads Google's Platform-Tools automatically when adb is missing
 - English and Bahasa Indonesia UI
-- Light and dark theme that follows Windows automatically
