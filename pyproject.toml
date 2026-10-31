@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airdebug"
+dynamic = ["version"]
+description = "Pair and auto-reconnect Android phones over Wi-Fi (wireless ADB) without Android Studio."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "Bang John" }]
+keywords = ["android", "adb", "wireless-debugging", "pairing", "qr-code", "windows", "tray"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: Microsoft :: Windows",
+  "Environment :: Win32 (MS Windows)",
+  "Topic :: Software Development :: Debuggers",
+]
+dependencies = [
+  "PySide6-Essentials>=6.6",
+  "zeroconf>=0.131",
+  "qrcode>=7.4",
+  "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pyinstaller>=6.6", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/bangjohn/AirDebug"
+Issues = "https://github.com/bangjohn/AirDebug/issues"
+
+[project.gui-scripts]
+airdebug = "airdebug.app:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "airdebug.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["airdebug*"]
+
+[tool.setuptools.package-data]
+airdebug = ["resources/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B008", "E501"]

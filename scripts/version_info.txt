@@ -1,0 +1,14 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(filevers=(1, 0, 0, 0), prodvers=(1, 0, 0, 0)),
+  kids=[
+    StringFileInfo([StringTable('040904B0', [
+      StringStruct('CompanyName', 'AirDebug'),
+      StringStruct('FileDescription', 'AirDebug - Wireless ADB connector'),
+      StringStruct('FileVersion', '1.0.0'),
+      StringStruct('InternalName', 'AirDebug'),
+      StringStruct('OriginalFilename', 'AirDebug.exe'),
+      StringStruct('ProductName', 'AirDebug'),
+      StringStruct('ProductVersion', '1.0.0')])]),
+    VarFileInfo([VarStruct('Translation', [1033, 1200])])
+  ]
+)

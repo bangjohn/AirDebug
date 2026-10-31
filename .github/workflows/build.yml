@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check airdebug tests
+
+      - name: Unit tests
+        run: pytest -q
+
+      - name: Build AirDebug.exe
+        run: pyinstaller --clean --noconfirm airdebug.spec
+
+      - name: Smoke test the exe
+        shell: pwsh
+        run: |
+          $p = Start-Process dist\AirDebug.exe -ArgumentList "--version" -PassThru -Wait
+          if (-not (Test-Path dist\AirDebug.exe)) { throw "exe missing" }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AirDebug-windows
+          path: dist/AirDebug.exe
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/AirDebug.exe
+          generate_release_notes: true
