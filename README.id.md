@@ -35,11 +35,13 @@ Debug aplikasi di HP Android biasanya terganggu salah satu dari dua hal ini:
 | 🔌 **USB → Wi-Fi** | Untuk HP lama (Android 10 ke bawah): colok sekali, klik, cabut. |
 | 📦 **Tanpa instalasi rumit** | Cukup satu file `.exe`. Kalau `adb` belum ada, AirDebug mengunduh Platform-Tools resmi dari Google. |
 | 🌐 **Bahasa Indonesia & English** | Mengikuti bahasa Windows secara otomatis. |
+| 🌗 **Mode terang & gelap** | Otomatis mengikuti tema Windows, bahkan saat aplikasi sedang berjalan. |
 
 Setelah tersambung, HP muncul di `adb devices`, Android Studio, VS Code, Flutter, React Native, scrcpy, dan semua alat lain yang memakai adb.
 
 <p align="center">
   <img src="docs/images/main.png" width="720" alt="Jendela utama AirDebug"><br>
+  <img src="docs/images/main-dark.png" width="720" alt="Dark mode"><br>
   <img src="docs/images/qr.png" height="300" alt="Pairing QR"> &nbsp;
   <img src="docs/images/code.png" height="300" alt="Pairing dengan kode">
 </p>

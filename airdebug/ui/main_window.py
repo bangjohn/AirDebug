@@ -35,20 +35,6 @@ from .workers import run_async
 
 log = logging.getLogger(__name__)
 
-STYLE = """
-QMainWindow { background: #f6f8fa; }
-QPushButton#primary {
-    background: #1b873f; color: white; border: none; border-radius: 6px;
-    padding: 8px 14px; font-weight: 600;
-}
-QPushButton#primary:hover { background: #17733a; }
-QPushButton { padding: 7px 12px; border-radius: 6px; }
-QTreeWidget { background: white; border: 1px solid #d0d7de; border-radius: 6px; }
-QLabel#title { font-size: 18px; font-weight: 700; }
-QLabel#muted { color: #57606a; }
-"""
-
-
 @dataclass
 class Row:
     name: str
@@ -80,7 +66,6 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(self.icon_on)
         self.setWindowTitle(f"AirDebug {__version__}")
         self.resize(760, 480)
-        self.setStyleSheet(STYLE)
 
         self._build_ui()
         self._build_tray()

@@ -12,3 +12,4 @@ First release.
 - USB → Wi-Fi (`adb tcpip`) for Android 10 and older
 - Downloads Google's Platform-Tools automatically when adb is missing
 - English and Bahasa Indonesia UI
+- Light and dark theme that follows Windows automatically

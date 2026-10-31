@@ -100,6 +100,11 @@ def main(argv: list[str] | None = None) -> int:
     app.setWindowIcon(QIcon(str(paths.resource("icon.png"))))
     app.setQuitOnLastWindowClosed(False)  # keep running in the tray
 
+    from .ui import theme
+
+    theme.apply(app)
+    theme.follow_system(app)
+
     # --- single instance: a second launch just shows the running window ---
     sock = QLocalSocket()
     sock.connectToServer(SINGLETON_KEY)

@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
 from ..core import Cancelled, ConnectResult, Controller, QrSession, parse_host_port
 from ..discovery import PAIRING
 from ..i18n import t
+from . import theme
 from .workers import run_async
 
 
@@ -70,11 +71,11 @@ class _BaseDialog(QDialog):
             return
         if res.ok:
             self.connected.emit(res)
-            status.setStyleSheet("color:#1b873f; font-weight:600")
+            status.setStyleSheet(theme.ok_style())
             status.setText("✓ " + res.message)
             QTimer.singleShot(1200, self.accept)
         else:
-            status.setStyleSheet("color:#c62828")
+            status.setStyleSheet(theme.error_style())
             status.setText(res.message)
 
 
@@ -150,7 +151,7 @@ class QrPairDialog(_BaseDialog):
         if err == Cancelled.__name__:
             return
         self.btn_new.setEnabled(True)
-        self.status.setStyleSheet("color:#c62828")
+        self.status.setStyleSheet(theme.error_style())
         self.status.setText(t("qr_timeout") if "QR" in err or "time" in err.lower() else err)
 
 
@@ -256,7 +257,7 @@ class CodePairDialog(_BaseDialog):
         if not self._alive():
             return
         self.btn_pair.setEnabled(True)
-        self.status.setStyleSheet("color:#c62828")
+        self.status.setStyleSheet(theme.error_style())
         self.status.setText(msg)
 
 
@@ -290,7 +291,7 @@ class ConnectDialog(_BaseDialog):
         try:
             host, port = parse_host_port(self.addr.text())
         except ValueError as e:
-            self.status.setStyleSheet("color:#c62828")
+            self.status.setStyleSheet(theme.error_style())
             self.status.setText(str(e))
             return
         self.btn.setEnabled(False)

@@ -35,11 +35,13 @@ Debugging an Android phone usually means one of two annoyances:
 | 🔌 **USB → Wi-Fi** | For older phones (Android ≤ 10): plug in once, click, unplug. |
 | 📦 **No setup** | One `.exe`. If `adb` isn't installed, AirDebug downloads Google's official Platform-Tools for you. |
 | 🌐 **English & Bahasa Indonesia** | Picks your Windows language automatically. |
+| 🌗 **Light & dark mode** | Follows the Windows app theme automatically, even while running. |
 
 Once connected, the phone shows up in `adb devices`, Android Studio, VS Code, Flutter, React Native, scrcpy… everything that uses adb.
 
 <p align="center">
   <img src="docs/images/main.png" width="720" alt="AirDebug main window"><br>
+  <img src="docs/images/main-dark.png" width="720" alt="Dark mode"><br>
   <img src="docs/images/qr.png" height="300" alt="QR pairing"> &nbsp;
   <img src="docs/images/code.png" height="300" alt="Pairing-code dialog">
 </p>
