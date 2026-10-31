@@ -170,7 +170,7 @@ pyinstaller --clean --noconfirm airdebug.spec   # -> dist\AirDebug.exe
 
 Or just run `powershell -ExecutionPolicy Bypass -File scripts\build.ps1`.
 
-Every push to `main` builds the exe on GitHub Actions (download it from the run's *Artifacts*). Pushing a tag like `v1.0.0` publishes a GitHub Release with `AirDebug.exe` attached.
+Every push to `main` builds the exe on GitHub Actions (download it from the run's *Artifacts*). Publishing a GitHub Release (for example tag `v1.0.0`) builds the exe and attaches `AirDebug.exe` to it automatically.
 
 AirDebug is written in Python with Qt (PySide6), so it also runs from source on Linux and macOS, although Windows is the main target.
 

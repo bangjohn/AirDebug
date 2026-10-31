@@ -170,7 +170,7 @@ pyinstaller --clean --noconfirm airdebug.spec   # -> dist\AirDebug.exe
 
 Atau cukup jalankan `powershell -ExecutionPolicy Bypass -File scripts\build.ps1`.
 
-Setiap push ke `main` otomatis membangun exe di GitHub Actions (unduh dari bagian *Artifacts* pada run tersebut). Push tag seperti `v1.0.0` akan membuat GitHub Release dengan `AirDebug.exe` terlampir.
+Setiap push ke `main` otomatis membangun exe di GitHub Actions (unduh dari bagian *Artifacts* pada run tersebut). Saat GitHub Release dipublikasikan (misalnya tag `v1.0.0`), exe otomatis dibangun dan dilampirkan ke rilis itu.
 
 ## Privasi & keamanan
 
