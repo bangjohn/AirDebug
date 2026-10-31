@@ -14,9 +14,9 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -42,7 +42,7 @@ jobs:
           $p = Start-Process dist\AirDebug.exe -ArgumentList "--version" -PassThru -Wait
           if (-not (Test-Path dist\AirDebug.exe)) { throw "exe missing" }
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: AirDebug-windows
           path: dist/AirDebug.exe
